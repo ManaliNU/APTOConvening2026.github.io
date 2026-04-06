@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APTO Summit 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --nsf-blue: #005699;
+      --nsf-blue-dark: #002554;
+      --nsf-blue-mid: #00437B;
+      --nsf-gold: #D3B34E;
+      --nsf-gold-light: #DCC276;
+      --nsf-teal: #00758D;
+      --nsf-light-blue: #4EC3E0;
+      --nsf-blue-20: #CCDDEA;
+      --white: #ffffff;
+      --off-white: #F5F8FC;
+      --text-dark: #1a1a2e;
+      --text-mid: #3d5a78;
+      --text-light: #6b8cad;
+      --border: #dce8f0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Source Sans 3', sans-serif; color: var(--text-dark); background: var(--white); line-height: 1.6; }
+
+    /* NAV */
+    nav { background: var(--white); border-bottom: 3px solid var(--nsf-blue); position: sticky; top: 0; z-index: 100; padding: 0 2rem; }
+    .nav-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .nav-logo img { height: 52px; display: block; }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a { display: block; padding: 0.5rem 1.1rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: color 0.15s, border-color 0.15s; }
+    .nav-links a:hover { color: var(--nsf-blue); border-bottom-color: var(--nsf-gold); }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, var(--nsf-blue-dark) 0%, var(--nsf-blue) 60%, var(--nsf-teal) 100%); color: var(--white); padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(78,195,224,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 80% 20%, rgba(211,179,78,0.08) 0%, transparent 50%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(211,179,78,0.15); border: 1px solid rgba(211,179,78,0.4); color: var(--nsf-gold-light); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 2px; margin-bottom: 1.75rem; }
+    .hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 300; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.01em; }
+    .hero h1 strong { font-weight: 600; color: var(--nsf-gold-light); display: block; }
+    .hero-sub { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .hero-details { display: flex; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .hero-detail { flex: 1; min-width: 140px; padding: 1rem 1.25rem; border-right: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); text-align: center; }
+    .hero-detail:last-child { border-right: none; }
+    .hero-detail-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--nsf-gold-light); display: block; margin-bottom: 0.3rem; }
+    .hero-detail-value { font-size: 0.92rem; color: var(--white); font-weight: 400; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--nsf-gold); color: var(--nsf-blue-dark); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 2.2rem; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
+    .hero-cta:hover { background: var(--nsf-gold-light); transform: translateY(-1px); }
+
+    /* TABS */
+    .tabs-bar { background: var(--off-white); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+    .tabs-inner { max-width: 1080px; margin: 0 auto; display: flex; }
+    .tab-btn { background: none; border: none; border-bottom: 3px solid transparent; padding: 1rem 1.4rem; font-family: 'Source Sans 3', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-light); cursor: pointer; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
+    .tab-btn.active { color: var(--nsf-blue); border-bottom-color: var(--nsf-blue); }
+    .tab-btn:hover:not(.active) { color: var(--text-mid); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* CONTENT */
+    .content-wrap { max-width: 1080px; margin: 0 auto; padding: 3rem 2rem; }
+    .section-head { margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--nsf-blue-20); }
+    .section-kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--nsf-gold); display: block; margin-bottom: 0.4rem; }
+    .section-head h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 400; color: var(--nsf-blue-dark); }
+
+    /* AGENDA */
+    .day-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .day-tab { background: var(--off-white); border: 1px solid var(--border); border-radius: 2px; padding: 0.55rem 1.1rem; font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-mid); cursor: pointer; transition: all 0.15s; }
+    .day-tab.active { background: var(--nsf-blue); border-color: var(--nsf-blue); color: var(--white); }
+    .day-tab:hover:not(.active) { border-color: var(--nsf-blue); color: var(--nsf-blue); }
+    .day-panel { display: none; }
+    .day-panel.active { display: block; }
+    .agenda-note { background: #FFF8E6; border-left: 3px solid var(--nsf-gold); padding: 0.75rem 1rem; font-size: 0.88rem; color: var(--text-mid); margin-bottom: 1.5rem; border-radius: 0 2px 2px 0; }
+    .session { display: grid; grid-template-columns: 140px 1fr; gap: 0 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+    .session:last-child { border-bottom: none; }
+    .session-time { font-size: 0.78rem; font-weight: 600; color: var(--nsf-blue); padding-top: 0.15rem; white-space: nowrap; }
+    .session-title { font-weight: 600; font-size: 1rem; color: var(--nsf-blue-dark); margin-bottom: 0.25rem; }
+    .session-tag { display: inline-block; background: var(--nsf-blue-20); color: var(--nsf-blue-dark); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.12rem 0.45rem; border-radius: 2px; margin-bottom: 0.4rem; }
+    .session-tag.gold { background: rgba(211,179,78,0.2); color: #7a5c00; }
+    .session-tag.teal { background: rgba(0,117,141,0.12); color: var(--nsf-teal); }
+    .session-items { list-style: none; margin-top: 0.4rem; }
+    .session-items li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-size: 0.88rem; color: var(--text-mid); padding: 0.18rem 0; border-top: 1px solid var(--off-white); }
+    .session-items li:first-child { border-top: none; }
+    .item-dur { font-size: 0.73rem; color: var(--text-light); white-space: nowrap; font-weight: 600; }
+    .session-note { font-size: 0.82rem; color: var(--text-light); font-style: italic; margin-top: 0.3rem; }
+
+    /* DOWNLOAD BUTTON (used in reg sidebar) */
+    .btn-download { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--nsf-gold); color: var(--nsf-blue-dark); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 2px; transition: background 0.2s; white-space: nowrap; }
+    .btn-download:hover { background: var(--nsf-gold-light); }
+
+    /* REGISTRATION */
+    .reg-layout { display: grid; grid-template-columns: 1fr 320px; gap: 2rem; align-items: start; }
+    .reg-embed { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .reg-embed iframe { display: block; width: 100%; border: none; }
+    .sidebar-card { border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem; background: var(--off-white); margin-bottom: 1rem; }
+    .sidebar-card h3 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--nsf-blue); margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--nsf-blue-20); }
+    .sidebar-item { padding: 0.75rem 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--text-mid); }
+    .sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-item strong { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 0.2rem; }
+
+    /* FOOTER */
+    footer { background: var(--nsf-blue-dark); color: rgba(255,255,255,0.7); padding: 2.5rem 2rem; text-align: center; margin-top: 4rem; }
+    footer img { height: 44px; margin-bottom: 1rem; opacity: 0.85; }
+    footer p { font-size: 0.82rem; line-height: 1.8; }
+    footer a { color: var(--nsf-gold-light); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .reg-layout { grid-template-columns: 1fr; }
+      .session { grid-template-columns: 1fr; gap: 0.2rem; }
+      .nav-links { display: none; }
+      .hero-details { flex-direction: column; }
+      .hero-detail { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .hero-detail:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <img src="nsf_logo.png" alt="U.S. National Science Foundation — Directorate for Technology, Innovation and Partnerships"/>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showTab('agenda', null); return false;">Agenda</a></li>
+      <li><a href="#" onclick="showTab('registration', null); return false;">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Annual Partnership &amp; Technology Outcomes</span>
+    <h1>APTO Convening 2026<strong>Washington, DC</strong></h1>
+    <p class="hero-sub">A two-day convening advancing AI policy, data, and prediction research across the APTO community.</p>
+    <div class="hero-details">
+      <div class="hero-detail">
+        <span class="hero-detail-label">Dates</span>
+        <span class="hero-detail-value">May 6–7, 2026</span>
+      </div>
+      <div class="hero-detail">
+        <span class="hero-detail-label">Venue</span>
+        <span class="hero-detail-value">Hyatt Centric Arlington</span>
+      </div>
+      <div class="hero-detail">
+        <span class="hero-detail-label">Room</span>
+        <span class="hero-detail-value">Senate Ballroom</span>
+      </div>
+      <div class="hero-detail">
+        <span class="hero-detail-label">Capacity</span>
+        <span class="hero-detail-value">100 Attendees</span>
+      </div>
+    </div>
+    <a href="https://forms.office.com/r/LrfFyJSFxn" target="_blank" class="hero-cta">
+      Register Now →
+    </a>
+  </div>
+</div>
+
+<!-- TAB BAR -->
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="showTab('agenda', this)">Agenda</button>
+    <button class="tab-btn" onclick="showTab('registration', this)">Registration</button>
+  </div>
+</div>
+
+<!-- ═══ AGENDA ═══ -->
+<div class="tab-panel active" id="tab-agenda">
+  <div class="content-wrap">
+    <div class="section-head">
+      <span class="section-kicker">Program</span>
+      <h2>APTO Convening 2026 — Tentative Agenda</h2>
+    </div>
+
+    <div class="day-tabs">
+      <button class="day-tab active" onclick="switchDay('d0',this)">May 5 — Pre-Dinner</button>
+      <button class="day-tab" onclick="switchDay('d1',this)">May 6 — Public Sessions</button>
+      <button class="day-tab" onclick="switchDay('d2',this)">May 7 — APTO Group</button>
+    </div>
+
+    <!-- May 5 -->
+    <div class="day-panel active" id="d0">
+      <div class="agenda-note">Optional pre-summit dinner for those arriving on May 5. <strong>Not sponsored</strong> — self-organized by attendees.</div>
+      <div class="session">
+        <div class="session-time">7:00 PM</div>
+        <div class="session-body">
+          <div class="session-title">Dinner</div>
+          <p class="session-note">Self-organized. See the Venue &amp; Travel tab for nearby restaurant suggestions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- May 6 -->
+    <div class="day-panel" id="d1">
+      <div class="agenda-note"><strong>APTO Group + Invited Guests.</strong> Public report out and presentations. Senate Ballroom, Hyatt Centric Arlington.</div>
+
+      <div class="session">
+        <div class="session-time">8:00–8:15 AM</div>
+        <div class="session-body"><div class="session-title">NSF Opening Remarks</div><span class="session-tag">NSF</span></div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">8:15–8:45 AM</div>
+        <div class="session-body">
+          <div class="session-title">Keynote I</div>
+          <span class="session-tag gold">Keynote</span>
+          <p class="session-note">Bartlett Russel — TBC</p>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">8:45–10:30 AM</div>
+        <div class="session-body">
+          <div class="session-title">Project Introductions &amp; Ambitions — Year 3</div>
+          <ul class="session-items">
+            <li>Northwestern <span class="item-dur">30 min</span></li>
+            <li>University of Chicago <span class="item-dur">30 min</span></li>
+            <li>Aperture.AI <span class="item-dur">15 min</span></li>
+            <li>Macrocosm <span class="item-dur">15 min</span></li>
+            <li>Insilicom <span class="item-dur">15 min</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">10:30 AM–12:00 PM</div>
+        <div class="session-body">
+          <div class="session-title">Session I — Data</div>
+          <span class="session-tag teal">Data</span>
+          <ul class="session-items">
+            <li>Northwestern <span class="item-dur">20 min</span></li>
+            <li>University of Chicago <span class="item-dur">20 min</span></li>
+            <li>Aperture.AI <span class="item-dur">20 min</span></li>
+            <li>Insilicom <span class="item-dur">20 min</span></li>
+            <li>Q&amp;A Session <span class="item-dur">10 min</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">12:00–1:00 PM</div>
+        <div class="session-body"><div class="session-title">Lunch</div></div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">1:00–2:30 PM</div>
+        <div class="session-body">
+          <div class="session-title">Session II — Policy</div>
+          <span class="session-tag teal">Policy</span>
+          <ul class="session-items">
+            <li>University of Chicago <span class="item-dur">30 min (20 pres. + 10 Q&amp;A)</span></li>
+            <li>Northwestern <span class="item-dur">30 min (20 pres. + 10 Q&amp;A)</span></li>
+            <li>Macrocosm <span class="item-dur">30 min (20 pres. + 10 Q&amp;A)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">2:30–2:45 PM</div>
+        <div class="session-body"><div class="session-title">Coffee Break</div></div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">2:45–4:15 PM</div>
+        <div class="session-body">
+          <div class="session-title">Session III — Prediction</div>
+          <span class="session-tag teal">Prediction</span>
+          <ul class="session-items">
+            <li>Northwestern <span class="item-dur">30 min (20 pres. + 10 Q&amp;A)</span></li>
+            <li>University of Chicago <span class="item-dur">30 min (20 pres. + 10 Q&amp;A)</span></li>
+            <li>Insilicom <span class="item-dur">30 min (20 pres. + 10 Q&amp;A)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">4:15–4:45 PM</div>
+        <div class="session-body">
+          <div class="session-title">Keynote II — Closing Remarks</div>
+          <span class="session-tag gold">Keynote</span>
+          <p class="session-note">Speaker TBD</p>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">5:00–7:30 PM</div>
+        <div class="session-body">
+          <div class="session-title">Networking Reception</div>
+          <p class="session-note">Judiciary Hall, Hyatt Centric Arlington. Non-alcoholic refreshments and light food provided. Alcoholic beverages at the cash bar (not sponsored).</p>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">7:30 PM</div>
+        <div class="session-body">
+          <div class="session-title">Dinner</div>
+          <p class="session-note">Not sponsored — self-organized. See Venue &amp; Travel tab for nearby restaurants.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- May 7 -->
+    <div class="day-panel" id="d2">
+      <div class="agenda-note"><strong>APTO Group Only.</strong> Collaborations &amp; Discussions. Senate Ballroom, Hyatt Centric Arlington.</div>
+
+      <div class="session">
+        <div class="session-time">9:00–9:10 AM</div>
+        <div class="session-body"><div class="session-title">NSF Opening Remarks</div><span class="session-tag">NSF</span></div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">9:10–10:40 AM</div>
+        <div class="session-body">
+          <div class="session-title">Session IV — Novel Opportunities</div>
+          <span class="session-tag teal">Novel Opportunities</span>
+          <ul class="session-items">
+            <li>University of Chicago <span class="item-dur">30 min (20 pres. + 10 Q&amp;A)</span></li>
+            <li>Northwestern <span class="item-dur">30 min (20 pres. + 10 Q&amp;A)</span></li>
+            <li>Insilicom <span class="item-dur">30 min (20 pres. + 10 Q&amp;A)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">10:40–11:00 AM</div>
+        <div class="session-body"><div class="session-title">Coffee Break</div></div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">11:00 AM–12:30 PM</div>
+        <div class="session-body">
+          <div class="session-title">Discussion Session I — Tools That Matter</div>
+          <span class="session-tag teal">Discussion</span>
+          <ul class="session-items">
+            <li>Introduction &amp; Provocateur (NSF) <span class="item-dur">10 min</span></li>
+            <li>Pod Discussions <span class="item-dur">30 min</span></li>
+            <li>Report Out from Each Pod <span class="item-dur">10 min</span></li>
+            <li>Crossfire Discussions <span class="item-dur">10 min</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">12:30–1:00 PM</div>
+        <div class="session-body"><div class="session-title">Group Photo + Lunch</div></div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">1:00–3:00 PM</div>
+        <div class="session-body">
+          <div class="session-title">Discussion Session II — Collaboration Building</div>
+          <span class="session-tag teal">Discussion</span>
+          <p class="session-note">Round-Robin format — 5 rounds at 24 minutes each. Topics may include: Data Gaps, Data Integration, Data Validation, Technology Outcomes, Technology Opportunities.</p>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time">3:00 PM</div>
+        <div class="session-body"><div class="session-title">Closing Remarks &amp; Adjourn</div><span class="session-tag">NSF</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ REGISTRATION ═══ -->
+<div class="tab-panel" id="tab-registration">
+  <div class="content-wrap">
+    <div class="section-head">
+      <span class="section-kicker">Secure Your Spot</span>
+      <h2>Register for APTO Summit 2026</h2>
+    </div>
+
+    <div class="reg-layout">
+      <div class="reg-embed">
+        <iframe
+          src="https://forms.office.com/r/LrfFyJSFxn"
+          height="720"
+          title="APTO Summit 2026 Event Registration"
+          allow="camera; microphone; geolocation">
+        </iframe>
+      </div>
+
+      <div>
+        <div class="sidebar-card">
+          <h3>Event At a Glance</h3>
+          <div class="sidebar-item"><strong>Dates</strong>May 6–7, 2026</div>
+          <div class="sidebar-item"><strong>Venue</strong>Hyatt Centric Arlington, Senate Ballroom<br/>1325 Wilson Blvd, Arlington, VA</div>
+          <div class="sidebar-item"><strong>Optional Pre-Summit Dinner</strong>May 5 at 7:00 PM (self-organized, not sponsored)</div>
+          <div class="sidebar-item"><strong>Day 1 — May 6</strong>APTO Group + Invited Guests</div>
+          <div class="sidebar-item"><strong>Day 2 — May 7</strong>APTO Group only</div>
+        </div>
+        <div class="sidebar-card">
+          <h3>Hotel &amp; Travel</h3>
+          <div class="sidebar-item"><strong>Room Rate</strong>$276 / night — booking link coming soon from Northwestern.</div>
+          <div class="sidebar-item"><strong>Nearest Airport</strong>DCA — Ronald Reagan National<br/>18 min transit · 10 min by car</div>
+          <div class="sidebar-item"><strong>Parking</strong>Valet $35 · Self-park $25 · Day voucher $10</div>
+        </div>
+        <div class="sidebar-card">
+          <h3>Restaurants</h3>
+          <div class="sidebar-item" style="border:none; padding-bottom:0;">
+            <a href="nearby_restaurants.pdf" target="_blank" class="btn-download" style="display:inline-flex;">⬇ Download Nearby Restaurants PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="nsf_logo.png" alt="NSF — Directorate for Technology, Innovation and Partnerships"/>
+  <p>
+    APTO Summit 2026 &nbsp;·&nbsp; May 6–7, Washington DC &nbsp;·&nbsp; Hyatt Centric Arlington, Senate Ballroom<br/>
+    Presented by the U.S. National Science Foundation — Directorate for Technology, Innovation and Partnerships &nbsp;·&nbsp;
+    <a href="https://www.nsf.gov" target="_blank">nsf.gov</a>
+  </p>
+</footer>
+
+<script>
+  function showTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    if (btn) { btn.classList.add('active'); }
+    else {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        if (b.textContent.toLowerCase().includes(name.toLowerCase())) b.classList.add('active');
+      });
+    }
+  }
+  function switchDay(id, btn) {
+    document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.day-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
